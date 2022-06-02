@@ -15,41 +15,25 @@ class RoverTest {
     @Test
     void should_move_rover_into_right() {
         rover.moveRight();
-
-        int result = rover.position[0];
-
-        assertEquals(6, result);
-        Assertions.assertThat(rover.position[1]).isEqualTo(5);
+        Assertions.assertThat(rover.position).isEqualTo(new Position(6, 5));
     }
 
     @Test
     void should_move_rover_into_left(){
         rover.moveLeft();
-
-        int result = rover.position[0];
-
-        assertEquals(4, result);
-        Assertions.assertThat(rover.position[1]).isEqualTo(5);
+        Assertions.assertThat(rover.position).isEqualTo(new Position(4, 5));
     }
 
     @Test
     void should_move_rover_into_top(){
         rover.moveTop();
-
-        int result = rover.position[1];
-
-        assertEquals(4, result);
-        Assertions.assertThat(rover.position[0]).isEqualTo(5);
+        Assertions.assertThat(rover.position).isEqualTo(new Position(5, 4));
     }
 
     @Test
     void should_move_rover_into_bottom(){
         rover.moveBottom();
-
-        int result = rover.position[1];
-
-        assertEquals(6, result);
-        Assertions.assertThat(rover.position[0]).isEqualTo(5);
+        Assertions.assertThat(rover.position).isEqualTo(new Position(5, 6));
     }
 
     @Test
@@ -57,7 +41,7 @@ class RoverTest {
 
         String instructions = "R";
         gameController.moveRoverOnGrid(instructions);
-        assertNotEquals(5, rover.position[0]);
+        assertNotEquals(rover.position, new Position(5, 5));
     }
 
 
